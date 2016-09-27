@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<h2>Login</h2>
+
+    {% if form.errors %}
+        <div class="alert alert-warning">
+            Username and Passphrase don't match. Try again.
+        </div>
+    {% else %}
+        <p>Fill out the form below to log in.</p>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf token %}
+        {% for field in form %}
+            {{field}}
+
+        {% endfor %}
+        <input type="hidden" name="next" value="{{next}}"><button type="submit" class="btn btn-warning">Log in</button>
+    </form>
+
+{% endblock %}
