@@ -4,10 +4,12 @@ from django.contrib.auth.models import User
 from django import forms
 
 #will eventually need BootstrapFormMixin
+class LoginForm(AuthenticationForm):
+    pass
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.Charfield(label='Passphrase', widget=forms.PasswordInput)
-    password2 = forms.Charfield(label='Repeat Passphrase', widget=forms.PasswordInput)
+    password = forms.CharField(label='Passphrase', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Repeat Passphrase', widget=forms.PasswordInput)
 
     class Meta:
         model = User
