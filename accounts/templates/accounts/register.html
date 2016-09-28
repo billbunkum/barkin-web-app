@@ -2,5 +2,17 @@
 
 {% block content %}
 <h2>Register page</h2>
+<small>Please, fill out the boxes below to Register</small>
 <hr>
+<form action="{% url 'accounts:register' %}" method="POST">
+{% csrf_token %}
+
+{% for field in form %}
+    {% include "core/_form_input.html" %}
+{% endfor %}
+
+<input type="hidden" name="next" value="{{next}}" />
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 {% endblock %}
