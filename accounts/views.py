@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 from .forms import UserRegistrationForm
 
 def register(request):
@@ -12,8 +12,9 @@ def register(request):
 
             new_user.save()
             messages.success(request, 'Congrats! You now exist.')
+#messages currently ONLY displays @ admin/ when logging in...how to change?
 
-            return redirect('core:index')
+            return redirect('core:profile')
     else:
         form = UserRegistrationForm()
 
