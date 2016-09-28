@@ -1,8 +1,14 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<h2>profile list</h2>
-<hr>
-list of user profiles on Barkin@pp
+    <h2>profiles list</h2>
+    <hr>
+    {% if profile_set %}
+        list of user profiles on Barkin@pp<br />
+        {% for username in usernames %}
 
+        {{username}}<br />
+
+        {% endfor %}
+    {% endif %}
 {% endblock content %}
