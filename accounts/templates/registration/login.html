@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 
 {% block content %}
+
 <h2>Login</h2>
 
     {% if form.errors %}
@@ -11,13 +12,14 @@
         <p>Fill out the form below to log in.</p>
     {% endif %}
 
-    <form action="" method="POST">
-        {% csrf token %}
-        {% for field in form %}
-            {{field}}
+    <form action="{% url 'accounts:login' %}" method="POST">
+        {% csrf_token %}
 
+        {% for field in form %}
+            {% include "core/_form_input.html" %}
         {% endfor %}
-        <input type="hidden" name="next" value="{{next}}"><button type="submit" class="btn btn-warning">Log in</button>
+        <input type="hidden" name="next" value="{{next}}">
+        <button type="submit" class="btn btn-warning">Log in</button>
     </form>
 
-{% endblock %}
+{% endblock content %}

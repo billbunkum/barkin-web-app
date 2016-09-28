@@ -3,11 +3,12 @@ from django.contrib.auth.models import User
 #from django.conf import settings
 from django import forms
 
-#will eventually need BootstrapFormMixin
-class LoginForm(AuthenticationForm):
+from core.forms import BootstrapFormMixin
+
+class LoginForm(BootstrapFormMixin, AuthenticationForm):
     pass
 
-class UserRegistrationForm(forms.ModelForm):
+class UserRegistrationForm(BootstrapFormMixin, forms.ModelForm):
     password = forms.CharField(label='Passphrase', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repeat Passphrase', widget=forms.PasswordInput)
 
