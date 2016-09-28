@@ -3,5 +3,10 @@
 {% block content %}
 <h2>User Profile page</h2>
 <hr>
-
-{% endblock %}
+{% if fields %}
+    {% for field in fields %}
+        {{field.label_tag}}
+        {{field}}
+    {% endfor %}
+{% endif %}
+{% endblock content %}
