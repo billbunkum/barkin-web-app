@@ -6,8 +6,17 @@ from .models import UserProfile
 
 def profile_list(request):
     profile_set = UserProfile.objects.all()
-    usernames = profile_set.user_id
+    usernames = []
+    profile_set_length = len(profile_set)
 
+    if profile_set_length > 0:
+        for username in profile_set:
+            name = profile_set.get_username
+            usernames.append(name)
+#    import pdb; pdb.set_trace()
+
+    else:
+        usernames.append("nothing here")
     context = {
         "profile_set": profile_set,
         "usernames": usernames,
