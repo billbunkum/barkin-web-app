@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<h2>Add a Bark</h2>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {% for field in form %}
+        {% include "core/_form_input.html" %}
+    {%  endfor %}
+    <button type="submit" class="btn btn-waiting">Add Bark</button>
+</form>
+{% endblock content %}
