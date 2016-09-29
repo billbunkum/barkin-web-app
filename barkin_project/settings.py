@@ -106,4 +106,3 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-AUTH_PROFILE_MODULE = "profiles.UserProfile"
