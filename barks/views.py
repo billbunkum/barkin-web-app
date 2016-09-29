@@ -27,8 +27,13 @@ def global_barks_list(request):
     return render(request, "barks/global_barks_list.html", context)
 
 @login_required
-def barks_list(request, id):
-    bark_query = request.user.bark_set.all()
+def barks_list(request, id=None):
+    if id:
+        user = User.objects.get(id=id)
+    else:
+        user = request.user
+
+    bark_query = user.bark_set.all()
 
     context = {
         "barks": bark_query,
@@ -46,7 +51,7 @@ def add_bark(request):
 
             new_bark.save()
             messages.success(request, "Bark!")
-            return redirect('barks:barks_list', id=1)
+            return redirect('barks:barks_list', id=request.user.id)
     else:
         form = BarkForm()
 

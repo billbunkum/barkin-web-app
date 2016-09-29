@@ -11,3 +11,9 @@ body {
     background-color: #fff;
     width: 100%;
 }
+
+.foot-user {
+    position: fixed;
+    bottom: 20px;
+    font-family: 'comic sans';
+}

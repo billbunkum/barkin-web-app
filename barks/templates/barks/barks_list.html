@@ -3,7 +3,6 @@
 {% block content %}
     <h2>user barks list</h2>
 
-Current user: {{ user }}
     <ul>
     {% for bark in barks %}
         <li>{{ bark.content }}</li>
@@ -13,4 +12,8 @@ Current user: {{ user }}
     </ul>
 
 <a class="btn btn-warning" href="{% url 'barks:add_bark' %}">Add a bark</a>
+
+<div class="foot-user">
+    Current user: {{ user }}
+</div>
 {% endblock content %}
