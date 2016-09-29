@@ -9,10 +9,10 @@ from .forms import BarkForm
 
 def global_barks_list(request):
     user_query = User.objects.all()
-    usernames = []
-    for item in user_query:
-        x = getattr(item, 'username')
-        usernames.append(x)
+#    usernames = []
+#    for item in user_query:
+#        x = getattr(item, 'username')
+#        usernames.append(x)
 
     ubs = {}
     for i in user_query:
@@ -21,22 +21,17 @@ def global_barks_list(request):
         ubs[x] = y
 
     context = {
-        "usernames": usernames,
         "ubs": ubs,
     }
-#    import pdb; pdb.set_trace()
+
     return render(request, "barks/global_barks_list.html", context)
 
 @login_required
 def barks_list(request, id):
-    user = request.user
-    barks = Bark.objects.get(content, pk=id)
-    time_stamp = Bark.objects.get(post_date, pk=id)
+    bark_query = request.user.bark_set.all()
 
     context = {
-        "user": user,
-        "barks": barks,
-        "time_stamp": time_stamp,
+        "barks": bark_query,
     }
     return render(request, "barks/barks_list.html", context)
 
