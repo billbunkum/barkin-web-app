@@ -3,6 +3,14 @@
 {% block content %}
 <h2>Add a Bark</h2>
 
+{% if form.errors %}
+    <div class="alert alert-warning">
+        Where's your bark??
+    </div>
+    {% else %}
+        <p>What you barkin' 'bout?</p>
+{% endif %}
+
 <form action="" method="POST">
     {% csrf_token %}
 

@@ -1,5 +1,13 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-user barks list<br />
+    <h2>user barks list</h2>
+
+    {{ user }}
+    <ul>
+    {% for bark in barks %}
+        <li>{{ bark }}</li>
+        <li>{{ time_stamp }}</li>
+    {% endfor %}
+    </ul>
 {% endblock content %}
