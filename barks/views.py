@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponseForbidden
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -57,9 +58,16 @@ def add_bark(request):
     return render(request, "barks/bark_form.html", context)
 
 @login_required
-def edit_bark(request, id):
+def edit_bark(request, id=None):
+    if id:
+        bark = get_object_or_404(Bark, pk=id)
+        if bark.user != request.user:
+            return HttpResponseForbidden()
+    else:
+        bark = Bark(request.user)
+
+    form = BarkForm(request.POST, instance = bark)
     if request.method == "POST":
-        form = BarkForm(request.POST)
 
         if form.is_valid():
             edited_bark = form.save(commit=False)

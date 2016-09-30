@@ -9,5 +9,7 @@ urlpatterns = [
 
 #this may not work
     url(r'^(?P<id>\d+)/edit/$', views.edit_bark, name="edit_bark"),
+
+#    url(r'^edit/(?P<id>\d+)/$', views.edit_bark, name="edit_bark"),
     url(r'^$', views.barks_list, name="barks_list"),
 ]
