@@ -19,49 +19,48 @@
 
 </head>
 <body>
-<header>
-    <nav class="nav navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#howdy" aria-expanded="false">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Barkin@app</a>
-            </div>
-            <ul class="nav nav-tabs">
-                    <li role="presentation"><a href="{% url 'barks:global_barks_list' %}">the Kennel
-                        </a></li>
-                {% if request.user.is_authenticated %}
-                    <li role="presentation"><em>Hello! {{user}}</em>
-                        </li>
-                {% else %}
-                    <li role="presentation"><em>Hello! Guest</em>
-                        </li>
-                {% endif %}
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#howdy" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'core:index' %}">Barkin@app</a>
+                </div>
 
-            <div class="collapse navebar-collapse" id="howdy">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                <div class="collapse navbar-collapse" id="howdy">
+                    <ul class="nav navbar-nav navbar-right">
+
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'accounts:logout' %}">Logout
+                            </a></li>
+                    {% else %}
+                        <li><a href="{% url 'accounts:login' %}">Login
+                            </a></li>
+                        <li><a href="{% url 'accounts:register' %}">Sign up
+                            </a></li>
+                    {% endif %}
+
+                            <li role="presentation"><a href="{% url 'barks:global_barks_list' %}">the Kennel
+                                </a></li>
                         {% if request.user.is_authenticated %}
-                            <li><a href="{% url 'accounts:logout' %}">Logout
-                                </a></li>
+                            <li role="presentation"><em>Hello! {{user}}</em>
+                                </li>
                         {% else %}
-                            <li><a href="{% url 'accounts:login' %}">Login
-                                </a></li>
-                            <li><a href="{% url 'accounts:register' %}">Sign up
-                                </a></li>
+                            <li role="presentation"><em>Hello! Guest</em>
+                                </li>
                         {% endif %}
-                    </li>
-                </ul>
+                    </ul>
+
+                </div>
             </div>
-            </ul>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 <div class="container">
     {% block content %}
 
