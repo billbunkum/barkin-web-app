@@ -8,16 +8,12 @@ from .forms import BarkForm
 
 
 def global_barks_list(request): #shows all user's barks
-    user_query = User.objects.all()
-
-    ubs = {}
-    for i in user_query:
-        x = i.username
-        y = i.bark_set.all()
-        ubs[x] = y
+    ubs = Bark.objects.all()
+    user_count = User.objects.count()
 
     context = {
         "ubs": ubs,
+        "user_count": user_count,
     }
 
     return render(request, "barks/global_barks_list.html", context)
