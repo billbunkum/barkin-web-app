@@ -61,12 +61,14 @@ def add_bark(request):
 def edit_bark(request, id=None):
     if id:
         bark = get_object_or_404(Bark, pk=id)
+
+        #probably don't need this as @login_required?
         if bark.user != request.user:
             return HttpResponseForbidden()
     else:
         bark = Bark(request.user)
 
-    form = BarkForm(request.POST, instance = bark)
+    form = BarkForm(request.POST, instance = bark) #here's the magic param
     if request.method == "POST":
 
         if form.is_valid():
@@ -81,6 +83,7 @@ def edit_bark(request, id=None):
 
     context = {
         "form": form,
+        "bark": bark,
     }
     return render(request, "barks/edit_bark.html", context)
 

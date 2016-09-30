@@ -5,9 +5,13 @@ body {
     background-repeat: no-repeat;
 }
 
-.container .bark-scroll {
+.bark-scroll {
     margin: 0 auto;
     border: 2px dotted black;
+}
+
+.old-bark {
+    margin: 5px;
 }
 
 .page-footer {
