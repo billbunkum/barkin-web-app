@@ -18,7 +18,7 @@ def global_barks_list(request): #shows all user's barks
 
     return render(request, "barks/global_barks_list.html", context)
 
-@login_required #shows a specific user's barks
+#@login_required #shows a specific user's barks
 def barks_list(request, id=None):
     if id:
         user = User.objects.get(id=id)

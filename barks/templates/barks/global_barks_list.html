@@ -9,13 +9,12 @@
             <p>
             <a href="{% url 'barks:barks_list' bark.user_id %}">
                 {{bark.user.username}}</a>
-            </p>
-            <p>
-                {{bark.post_date}}
+                -- {{bark.post_date}}
             </p>
             <p>
                 {{bark.content}}
             </p>
+            <hr style="border-top: 1px dotted black;">
         {% endfor %}
     </div>
 </p>
