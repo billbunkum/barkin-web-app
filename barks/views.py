@@ -25,9 +25,11 @@ def barks_list(request, id=None):
     else:
         user = request.user
 
+    author = User.objects.get(id=id)
     bark_query = user.bark_set.all()
 
     context = {
+        "author": author,
         "barks": bark_query,
     }
     return render(request, "barks/barks_list.html", context)
