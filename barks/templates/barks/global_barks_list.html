@@ -4,16 +4,18 @@
 <h2>the Kennel</h2>
 <small>There are {{user_count}} barkers on Barkin@pp!</small>
 <p>
-    <div class="bark-scroll">
+    <div class="container">
         {% for bark in ubs %}
-            <ul>
-                <li>{{bark.user.username}}
-                    </li>
-                <li>{{bark.post_date}}
-                    </li>
-                <li>{{bark.content}}
-                    </li>
-            </ul>
+            <p>
+            <a href="{% url 'barks:barks_list' bark.user_id %}">
+                {{bark.user.username}}</a>
+            </p>
+            <p>
+                {{bark.post_date}}
+            </p>
+            <p>
+                {{bark.content}}
+            </p>
         {% endfor %}
     </div>
 </p>
