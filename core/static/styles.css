@@ -5,6 +5,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.header {
+    padding-top: 10px;
+}
+
 .page-footer {
     position: fixed;
     bottom: 5px;

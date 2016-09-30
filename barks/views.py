@@ -7,12 +7,8 @@ from .models import Bark
 from .forms import BarkForm
 
 
-def global_barks_list(request):
+def global_barks_list(request): #shows all user's barks
     user_query = User.objects.all()
-#    usernames = []
-#    for item in user_query:
-#        x = getattr(item, 'username')
-#        usernames.append(x)
 
     ubs = {}
     for i in user_query:
@@ -26,7 +22,7 @@ def global_barks_list(request):
 
     return render(request, "barks/global_barks_list.html", context)
 
-@login_required
+@login_required #shows a specific user's barks
 def barks_list(request, id=None):
     if id:
         user = User.objects.get(id=id)
