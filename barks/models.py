@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 #from profiles.models import UserProfile
 
@@ -11,4 +12,6 @@ class Bark(models.Model):
 
     def __str__(self):
         return self.content
-#   this may NOT work
+
+    def get_absolute_url(self):
+        return reverse("barks:edit_bark", args=[self.pk])

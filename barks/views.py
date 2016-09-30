@@ -22,10 +22,11 @@ def global_barks_list(request): #shows all user's barks
 def barks_list(request, id=None):
     if id:
         user = User.objects.get(id=id)
+        author = user
     else:
         user = request.user
+        author = user
 
-    author = User.objects.get(id=id)
     bark_query = user.bark_set.all()
 
     context = {
@@ -54,3 +55,25 @@ def add_bark(request):
     }
 
     return render(request, "barks/bark_form.html", context)
+
+@login_required
+def edit_bark(request, id):
+    if request.method == "POST":
+        form = BarkForm(request.POST)
+
+        if form.is_valid():
+            edited_bark = form.save(commit=False)
+            edited_bark.user = request.user
+
+            edited_bark.save()
+            messages.success(request, "Bark, 'edit'!")
+            return redirect('barks:barks_list', id=request.user.id)
+    else:
+        form = BarkForm()
+
+    context = {
+        "form": form,
+    }
+    return render(request, "barks/edit_bark.html", context)
+
+

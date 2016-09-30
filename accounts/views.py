@@ -12,9 +12,8 @@ def register(request):
 
             new_user.save()
             messages.success(request, 'Congrats! You now exist.')
-#messages currently ONLY displays @ admin/ when logging in...how to change?
 
-            return redirect('barks:barks_list')
+            return redirect('accounts:login')
     else:
         form = UserRegistrationForm()
 
