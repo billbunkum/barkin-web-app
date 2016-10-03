@@ -1,0 +1,1 @@
+Procfile gunicorn barkin_project.wsgi
