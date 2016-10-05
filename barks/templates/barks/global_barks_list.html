@@ -2,7 +2,11 @@
 
 {% block content %}
 <h2>the Kennel</h2>
+{% if user_count %}
 <small>There are {{user_count}} barkers on Barkin@pp!</small>
+{% else %}
+<small>There are 0 barkers on Barkin@pp!</small>
+{% endif %}
 <p>
     <div class="container">
         {% for bark in ubs %}

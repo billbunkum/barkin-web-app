@@ -1,8 +1,21 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<h2>Barkin@pp</h2>
+<div class="jumbotron">
+    <h2>Welcome to Barkin@pp!</h2>
+</div>
 <hr>
-{{ user }}
+<div class="row">
+    <div class="col-xs-12">
+        <p>
+            <div class="text-block">
+                <p><strong>Barkin@pp</strong> was designed during my time at Awesome Inc. U.'s 'Bootcamp' using Django as a 'Bootcamp' project.
+                    </p>
 
+                <p>Feel free to <a href="{% url 'accounts:login' %}">Login</a> or <a href="{% url 'accounts:register' %}">Signup!
+                    </a>
+                        </p>
+            </div>
+    </div>
+</div>
 {% endblock %}

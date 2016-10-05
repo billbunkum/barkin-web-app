@@ -40,9 +40,9 @@
                         <li><a href="{% url 'accounts:logout' %}">Logout
                             </a></li>
                     {% else %}
-                        <li><a href="{% url 'accounts:login' %}">Login
+                        <li><a href="{% url 'accounts:login' %}" id="login">Login
                             </a></li>
-                        <li><a href="{% url 'accounts:register' %}">Sign up
+                        <li><a href="{% url 'accounts:register' %}" id="sign_up">Sign up
                             </a></li>
                     {% endif %}
 
