@@ -1,8 +1,12 @@
 {% extends "core/base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="jumbotron">
-    <h2>Welcome to Barkin@pp!</h2>
+    <h2>
+        <img src="{% static 'images/french-bulldog.png' %}" width="60px">
+        &nbsp;Welcome to Barkin@pp!
+    </h2>
 </div>
 <hr>
 <div class="row">
