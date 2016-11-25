@@ -2,39 +2,34 @@
 
 {% block content %}
 <h1>Bark that edit!</h1>
-    <hr style="border-top: 2px dotted black;" />
+<hr style="border-top: 2px dotted black;" />
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p><small>Bark to edit:
-                    </small>
-                </p>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Bark to edit:</h2>
 
-                <p class="old-bark">
-                    <em>{{ bark.content }}
-                        </em>
-                </p>
-            </div>
-            <div class="col-md-6">
-                {% if form.errors %}
-                    <div class="alert alert-warning">
-                        There is no barked edit...there is only Zuul.
-                    </div>
-                    {% else %}
-                        <p>Barkin' edits below:</p>
-                {% endif %}
-
-                <form action="" method="POST">
-                    {% csrf_token %}
-
-                    {% for field in form %}
-                        {% include "core/_form_input.html" %}
-                    {%  endfor %}
-                    <button type="submit" class="btn btn-warning">Confirm Edit</button>
-                </form>
-            </div>
-        </div>
+        <p class="old-bark">
+            {{ bark.content }}
+        </p>
     </div>
+    <div class="col-md-6">
+        {% if form.errors %}
+            <div class="alert alert-warning">
+                There is no barked edit...there is only Zuul.
+            </div>
+            {% else %}
+                <h2>Edit below:</h2>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+                {% include "core/_form_input.html" %}
+            {%  endfor %}
+            <button type="submit" class="btn btn-warning btn-lg">Confirm Edit</button>
+        </form>
+    </div>
+</div>
 
 {% endblock content %}

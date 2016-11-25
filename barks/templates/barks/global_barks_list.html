@@ -30,7 +30,9 @@
     <div class="col-md-10 col-md-offset-1">
         {% for bark in ubs %}
             <p class="barker-and-date">
-            <a href="{% url 'barks:barks_list' bark.user_id %}">
+            <a href="{% url 'barks:barks_list' bark.user_id %}"
+                title="click to see all &nbsp; {{bark.user.username}}'s  barks"
+            >
                 {{bark.user.username}}</a>
                 -- {{bark.post_date}}
             </p>
@@ -41,5 +43,5 @@
         {% endfor %}
     </div>
 </div>
-<span class="footer-buffer"></span>
+<!-- <span class="footer-buffer"></span> -->
 {% endblock content %}

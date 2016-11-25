@@ -46,25 +46,47 @@
                 <div class="collapse navbar-collapse" id="howdy">
                     <ul class="nav navbar-nav navbar-right">
 
-                    {% if request.user.is_authenticated %}
-                        <li><a href="{% url 'accounts:logout' %}">Logout
-                            </a></li>
-                    {% else %}
-                        <li><a href="{% url 'accounts:login' %}" id="login">Login
-                            </a></li>
-                        <li><a href="{% url 'accounts:register' %}" id="sign_up">Sign up
-                            </a></li>
-                    {% endif %}
-
-                            <li role="presentation"><a href="{% url 'barks:global_barks_list' %}">the Kennel
-                                </a></li>
                         {% if request.user.is_authenticated %}
-                            <li role="presentation"><em>Hello! {{user}}</em>
-                                </li>
+                            <li role="presentation"
+                                class="hello-user"
+                            >
+                                <a href="">
+                                    <em>Hello! {{user}}</em>
+                                </a>
+                            </li>
                         {% else %}
-                            <li role="presentation"><em>Hello! Guest</em>
-                                </li>
+                            <li role="presentation"
+                                class="hello-user"
+                            >
+                                <a href="">
+                                    <em>Hello! Guest</em>
+                                </a>
+                            </li>
                         {% endif %}
+
+                        {% if request.user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'accounts:logout' %}">Logout
+                                </a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="{% url 'accounts:login' %}" id="login">Login
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'accounts:register' %}" id="sign_up">Sign up
+                                </a>
+                            </li>
+                        {% endif %}
+
+                            <li role="presentation">
+                                <a href="{% url 'barks:global_barks_list' %}"
+                                    title="Check out what's barkin!"
+                                >the Kennel
+                                </a>
+                            </li>
+
                     </ul>
 
                 </div>
@@ -85,6 +107,7 @@
     {% block content %}
 
     {% endblock content %}
+    <span class="footer-buffer"></span>
 </div>
 
 <footer class="page-footer">

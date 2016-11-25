@@ -4,16 +4,17 @@
     <h1>{{ author }}'s barks list</h1>
 
     <ul>
-    {% for bark in barks %}
-        <li>{{ bark }} -- {{ bark.post_date }}</li>
-        <li><a href="{{ bark.get_absolute_url }}">Edit</a></li>
-    <hr style="border-top: 1px dotted black;">
-    {% endfor %}
+        {% for bark in barks %}
+            <li class="barkers-bark">
+                {{ bark }} -- {{ bark.post_date }}
+            </li>
+            <li>
+                <a href="{{ bark.get_absolute_url }}">Edit</a>
+            </li>
+        <hr style="border-top: 1px dotted black;">
+        {% endfor %}
     </ul>
 
-<a class="btn btn-warning" href="{% url 'barks:add_bark' %}">Add a bark</a>
+<a class="btn btn-warning btn-lg" href="{% url 'barks:add_bark' %}">Add a bark</a>
 
-<div class="foot-user">
-    Current user: {{ user }}
-</div>
 {% endblock content %}

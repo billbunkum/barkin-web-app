@@ -8,7 +8,6 @@
 /* dark orange #FF7B30*/
 /* dark yellow #FFD230*/
 
-
 body {
     background-color: #DAEAFD;
     background-repeat: no-repeat;
@@ -41,6 +40,11 @@ a:hover {
 .dog-brand {
     margin-top: 5px;
 }
+
+/*.hello-user {
+    color: #FFF6D8;
+    font-weight: bold;
+}*/
 
 .jumbotron {
     background-color: #FFE6D8;
@@ -79,6 +83,8 @@ a:hover {
 
 .old-bark {
     margin: 5px;
+    font-size: 28px;
+    color: #FFF6D8;
 }
 
 .footer-buffer {
@@ -103,10 +109,9 @@ a:hover {
 }
 
 .foot-user {
+    color: black;
     position: fixed;
-    bottom: 20px;
     font-family: 'comic sans';
-    background-color: ;
 }
 
 /*Attempt at changing to CUSTOM bootstrap navbar*/
