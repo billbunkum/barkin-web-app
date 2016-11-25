@@ -1,14 +1,26 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<h2>the Kennel</h2>
+<h2>the Kennel<br />
 {% if user_count %}
 <small>There are {{user_count}} barkers on Barkin@pp!</small>
 {% else %}
 <small>There are 0 barkers on Barkin@pp!</small>
+</h2>
 {% endif %}
+
+    <ul>
+        <li>
+            <a 
+                class="btn btn-warning btn-lg" 
+                href="{% url 'barks:add_bark' %}"
+            >
+                Add a bark
+            </a>
+        </li>
+    </ul>
+
 <p>
-    <div class="container">
         {% for bark in ubs %}
             <p>
             <a href="{% url 'barks:barks_list' bark.user_id %}">
@@ -20,15 +32,5 @@
             </p>
             <hr style="border-top: 1px dotted black;">
         {% endfor %}
-    </div>
-</p>
-<p>
-<ul>
-    <li><a class="btn btn-warning" 
-    href="{% url 'barks:add_bark' %}"
-    >
-    Add a bark
-    </a></li>
-</ul>
 </p>
 {% endblock content %}
