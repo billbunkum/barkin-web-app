@@ -50,8 +50,10 @@
                             <li role="presentation"
                                 class="hello-user"
                             >
-                                <a href="">
-                                    <em>Hello! {{user}}</em>
+                                <a href="{% url 'barks:barks_list' request.user.id %}"
+                                    title="Click to view your barks"
+                                >
+                                    <em>{{user}}'s Barks List</em>
                                 </a>
                             </li>
                         {% else %}
