@@ -2,23 +2,31 @@
 
 {% block content %}
 <h1>Add a Bark</h1>
+<hr>
 
-{% if form.errors %}
-    <div class="alert alert-warning">
-        Where's your bark??
+<div class="row">
+    <div class="col-md-12">
+        {% if form.errors %}
+            <div class="alert alert-warning">
+                Where's your bark??
+            </div>
+        {% else %}
+            <h3>
+                What you barkin' 'bout?
+            </h3>
+        {% endif %}
     </div>
-    {% else %}
-        <h3>
-            What you barkin' 'bout?
-        </h3>
-{% endif %}
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form action="" method="POST">
+            {% csrf_token %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-
-    {% for field in form %}
-        {% include "core/_form_input.html" %}
-    {%  endfor %}
-    <button type="submit" class="btn btn-warning btn-lg">Add Bark</button>
-</form>
+            {% for field in form %}
+                {% include "core/_form_input.html" %}
+            {%  endfor %}
+            <button type="submit" class="btn btn-warning btn-lg">Add Bark</button>
+        </form>
+    </div>
+</div>
 {% endblock content %}
