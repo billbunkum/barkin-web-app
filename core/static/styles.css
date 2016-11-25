@@ -13,18 +13,20 @@ body {
     background-color: #DAEAFD;
     background-repeat: no-repeat;
     font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
 }
-
-h1, h2 {
-    font-family: 'Indie Flower', cursive;
-}
-
-/*.container-fluid, ul {
-    font-family: 'Quicksand', sans-serif;
-}*/
 
 ul {
     list-style-type: none;
+}
+
+h1 small {
+    color: #FFF6D8;
+}
+
+h1, h2, h3 {
+    color: #FFF6D8;
+    font-weight: bold;
 }
 
 a:link, a:visited, a:active {
@@ -36,6 +38,10 @@ a:hover {
     text-decoration: none;
 }
 
+.dog-brand {
+    margin-top: 5px;
+}
+
 .jumbotron {
     background-color: #FFE6D8;
 }
@@ -44,10 +50,26 @@ a:hover {
 .container {
     background-color: #3479CB;
     padding: 10px;
+    border: black 2px solid;
+}
+
+.barker-and-date {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.barkers-bark {
+    font-size: 32px;
+    color: #FFF6D8;
+}
+
+/* works? */
+.messages {
+    font-size: 20px;
 }
 
 .text-block {
-    font-size: 20px;
+    font-size: 28px;
 }
 
 .bark-scroll {
@@ -59,11 +81,16 @@ a:hover {
     margin: 5px;
 }
 
+.footer-buffer {
+    padding: 170px;
+}
+
 .page-footer {
     position: fixed;
     bottom: 0px;
     background-color: #111b28;
     color: #fff6d8;
+    font-size: 14px;
     width: 100%;
 }
 

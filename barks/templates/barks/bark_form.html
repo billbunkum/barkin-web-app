@@ -1,14 +1,16 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<h2>Add a Bark</h2>
+<h1>Add a Bark</h1>
 
 {% if form.errors %}
     <div class="alert alert-warning">
         Where's your bark??
     </div>
     {% else %}
-        <p>What you barkin' 'bout?</p>
+        <h3>
+            What you barkin' 'bout?
+        </h3>
 {% endif %}
 
 <form action="" method="POST">
@@ -17,6 +19,6 @@
     {% for field in form %}
         {% include "core/_form_input.html" %}
     {%  endfor %}
-    <button type="submit" class="btn btn-warning">Add Bark</button>
+    <button type="submit" class="btn btn-warning btn-lg">Add Bark</button>
 </form>
 {% endblock content %}

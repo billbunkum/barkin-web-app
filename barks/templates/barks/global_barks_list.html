@@ -1,36 +1,45 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<h2>the Kennel<br />
-{% if user_count %}
-<small>There are {{user_count}} barkers on Barkin@pp!</small>
-{% else %}
-<small>There are 0 barkers on Barkin@pp!</small>
-</h2>
-{% endif %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>the Kennel<br />
+            {% if user_count %}
+                <small>There are {{user_count}} barkers on Barkin@pp!</small>
+            {% else %}
+                <small>There are 0 barkers on Barkin@pp!</small>
+            {% endif %}
+        </h1>
 
-    <ul>
-        <li>
-            <a 
-                class="btn btn-warning btn-lg" 
-                href="{% url 'barks:add_bark' %}"
-            >
-                Add a bark
-            </a>
-        </li>
-    </ul>
-
-<p>
+        <ul>
+            <li>
+                <a 
+                    class="btn btn-warning btn-lg" 
+                    href="{% url 'barks:add_bark' %}"
+                >
+                    Add a bark
+                </a>
+            </li>
+        </ul>
+    <!-- col-md-12 -->
+    </div>
+<!-- row -->
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
         {% for bark in ubs %}
-            <p>
+            <p class="barker-and-date">
             <a href="{% url 'barks:barks_list' bark.user_id %}">
                 {{bark.user.username}}</a>
                 -- {{bark.post_date}}
             </p>
-            <p>
+            <p class="barkers-bark">
                 {{bark.content}}
             </p>
             <hr style="border-top: 1px dotted black;">
         {% endfor %}
-</p>
+    </div>
+</div>
+<span class="footer-buffer"></span>
 {% endblock content %}
